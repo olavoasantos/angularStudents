@@ -1,0 +1,17 @@
+<nav class="navbar w-full flex items-center text-white bg-primary border-t-8 border-primary-dark py-4 shadow">
+  
+  <!-- Menu de volta -->
+  <div class="navbar:left w-1/5">
+    <div *ngIf="window['$store'].state.route === 'index'" class="ml-4 text-2xl w-8 h-8"> </div>
+    <div *ngIf="window['$store'].state.route !== 'index'" (click)="window['$store'].return()" class="flex-center text-bold ml-4 text-2xl hover:bg-primary-dark w-8 h-8 rounded-full cursor-pointer">
+      <i class="fa fa-arrow-left"></i>
+    </div>
+  </div>
+
+  <!-- Título -->
+  <div class="navbar:center flex-1 text-center text-xl">iAlunos</div>
+  
+  <!-- Menu da direita (não usado mas mantido para centralização) -->
+  <div class="navbar:right w-1/5"></div>
+
+</nav>

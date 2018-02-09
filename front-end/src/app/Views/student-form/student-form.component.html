@@ -1,0 +1,98 @@
+<div class="flex flex-wrap flex-col">
+  
+    <h2>Dados do aluno</h2>
+    <div class="form:component flex mb-4 flex-col w-full px-2">
+      <label class="font-bold text-sm">Nome</label>
+      <input class="p-2 h-10 border" type="text" (blur)="validate('name', $event)" [(ngModel)]="form.name" />
+      <span class="text-xs text-red font-bold" *ngIf="errors.has('name')">{{ errors.get('name') }}</span>
+    </div>
+
+    <div class="form:row w-full flex">
+      <div class="form:component flex mb-4 flex-col w-full px-2">
+        <label class="font-bold text-sm">Data de nascimento</label>
+        <input class="p-2 h-10 border" type="date" (blur)="validate('birthday', $event)" [(ngModel)]="form.birthday" />
+        <span class="text-xs text-red font-bold" *ngIf="errors.has('birthday')">{{ errors.get('birthday') }}</span>
+      </div>
+
+      <div class="form:component flex mb-4 flex-col w-full px-2">
+        <label class="font-bold text-sm">Série de Ingresso</label>
+        <input class="p-2 h-10 border" type="number" min="1" max="9" (blur)="validate('grade', $event)" [(ngModel)]="form.grade" />
+        <span class="text-xs text-red font-bold" *ngIf="errors.has('grade')">{{ errors.get('grade') }}</span>
+      </div>
+    </div>
+    
+    <h2>Dados da mãe</h2>
+    <div class="form:component flex mb-4 flex-col w-full px-2">
+      <label class="font-bold text-sm">Nome da mãe</label>
+      <input class="p-2 h-10 border" type="text" (blur)="validate('mother.name', $event)" [(ngModel)]="form.mother.name" />
+      <span class="text-xs text-red font-bold" *ngIf="errors.has('mother.name')">{{ errors.get('mother.name') }}</span>
+    </div>
+
+    <div class="form:row w-full flex flex-col sm:flex-row">
+      <div class="form:component flex mb-4 flex-col w-full px-2">
+        <label class="font-bold text-sm">CPF da mãe</label>
+        <input class="p-2 h-10 border" type="text" (blur)="validate('mother.cpf', $event)" [(ngModel)]="form.mother.cpf" />
+        <span class="text-xs text-red font-bold" *ngIf="errors.has('mother.cpf')">{{ errors.get('mother.cpf') }}</span>
+      </div>
+
+      <div class="form:component flex mb-4 flex-col w-full px-2">
+        <label class="font-bold text-sm">Dia preferencial para pagamento da mensalidade</label>
+        <input class="p-2 h-10 border" type="number" min="1" max="31"  (blur)="validate('mother.charge_at', $event)" [(ngModel)]="form.mother.charge_at" />
+        <span class="text-xs text-red font-bold" *ngIf="errors.has('mother.charge_at')">{{ errors.get('mother.charge_at') }}</span>
+      </div>
+    </div>
+
+    <h2>Endereço</h2>
+    <div class="form:row w-1/2 flex">
+      <div class="form:component flex mb-4 flex-col w-full px-2">
+        <label class="font-bold text-sm">CEP</label>
+        <input class="p-2 h-10 border" type="number" (blur)="validate('address.postal_code', $event)" [(ngModel)]="form.address.postal_code" />
+        <span class="text-xs text-red font-bold" *ngIf="errors.has('address.postal_code')">{{ errors.get('address.postal_code') }}</span>
+      </div>
+    </div>
+
+    <div class="form:row w-full flex flex-col sm:flex-row">
+      <div class="form:component flex mb-4 flex-col w-full sm:w-1/2 px-2">
+        <label class="font-bold text-sm">Rua</label>
+        <input class="p-2 h-10 border" type="text"  (blur)="validate('address.street', $event)" [(ngModel)]="form.address.street" />
+        <span class="text-xs text-red font-bold" *ngIf="errors.has('address.street')">{{ errors.get('address.street') }}</span>
+      </div>
+
+      <div class="form:component flex mb-4 flex-col w-full sm:w-1/4 px-2">
+        <label class="font-bold text-sm">Número</label>
+        <input class="p-2 h-10 border" type="number"  (blur)="validate('address.number', $event)" [(ngModel)]="form.address.number" />
+        <span class="text-xs text-red font-bold" *ngIf="errors.has('address.number')">{{ errors.get('address.number') }}</span>
+      </div>
+  
+      <div class="form:component flex mb-4 flex-col w-full sm:w-1/4 px-2">
+        <label class="font-bold text-sm">Complemento</label>
+        <input class="p-2 h-10 border" type="text"  (blur)="validate('address.complement', $event)" [(ngModel)]="form.address.complement" />
+        <span class="text-xs text-red font-bold" *ngIf="errors.has('address.complement')">{{ errors.get('address.complement') }}</span>
+      </div>
+    </div>
+
+    <div class="form:row w-full flex flex-col sm:flex-row">
+      <div class="form:component flex mb-4 flex-col w-full sm:w-2/5 px-2">
+        <label class="font-bold text-sm">Bairo</label>
+        <input class="p-2 h-10 border" type="text"  (blur)="validate('address.neighborhood', $event)" [(ngModel)]="form.address.neighborhood" />
+        <span class="text-xs text-red font-bold" *ngIf="errors.has('address.neighborhood')">{{ errors.get('address.neighborhood') }}</span>
+      </div>
+
+      <div class="form:component flex mb-4 flex-col w-full sm:w-2/5 px-2">
+        <label class="font-bold text-sm">Cidade</label>
+        <input class="p-2 h-10 border" type="text"  (blur)="validate('address.city', $event)" [(ngModel)]="form.address.city" />
+        <span class="text-xs text-red font-bold" *ngIf="errors.has('address.city')">{{ errors.get('address.city') }}</span>
+      </div>
+
+      <div class="form:component flex mb-4 flex-col w-full sm:w-1/5 px-2">
+        <label class="font-bold text-sm">Estado</label>
+        <input class="p-2 h-10 border" type="text"  (blur)="validate('address.state', $event)" [(ngModel)]="form.address.state" />
+        <span class="text-xs text-red font-bold" *ngIf="errors.has('address.state')">{{ errors.get('address.state') }}</span>
+      </div>
+    </div>
+  
+    <div class="flex justify-end p-2">
+        <button class="px-8 py-4 text-primary hover:bg-primary-lightest hover:text-primary rounded" (click)="window['$store'].return()">cancelar</button>
+        <button [disabled]="!errors.empty()" class="px-8 py-4 text-white bg-primary hover:bg-primary-light rounded" (click)="submit()">salvar</button>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="estudantes">
+  <div class="flex justify-end">
+      <button class="px-6 py-2 my-4 text-white bg-primary hover:bg-primary-light rounded" (click)="window['$store'].setRoute('form')">adicionar estudante</button>
+  </div>
+
+  <app-student
+      [student]="Student"
+      (click)="view(Student)"
+      *ngFor="let Student of window['$store'].state.students"
+  ></app-student>
+
+</div>

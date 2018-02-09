@@ -1,0 +1,50 @@
+<div class="student-view">
+  <div class="student my-4 flex items-center border p-4 rounded shadow">
+    <div class="estudante:data flex-1">
+        <h1>{{ student.name }}</h1>
+    </div>
+    <div class="student:actions flex border-l">
+        <div (click)="window['$store'].editStudent(student)" class="action flex-center w-8 h-8 ml-2 hover:text-blue hover:bg-blue-lightest rounded-full cursor-pointer"><i class="fa fa-pencil"></i></div>
+        <div (click)="window['$store'].deleteStudent(student)" class="action flex-center w-8 h-8 ml-2 hover:text-red hover:bg-red-lightest rounded-full cursor-pointer"><i class="fa fa-trash"></i></div>
+    </div>
+  </div>
+  <div class="student:data mb-4 flex flex-col border p-4 rounded shadow">
+    <h2 class="mb-4">Dados pessoais</h2>
+    <div class="student:data flex my-2">
+      <i class="fa fa-birthday-cake w-8 mr-4"></i> <span class="tracking-wide">{{ student.birthday }}</span>
+    </div>
+    <div class="student:data flex my-2">
+      <i class="fa fa-graduation-cap w-8 mr-4"></i> <span>{{ student.grade }}o ano</span>
+    </div>
+  </div>
+
+  <div class="student:data mb-4 flex flex-col border p-4 rounded shadow">
+    <h2 class="mb-4">Dados da mãe</h2>
+    <div class="student:data flex my-2">
+      <i class="fa fa-female w-8 mr-4"></i> <span class="tracking-wide">{{ student.mother.name }}</span>
+    </div>
+    <div class="student:data flex my-2">
+      <i class="fa fa-id-card-o w-8 mr-4"></i> <span>{{ student.mother.cpf }}</span>
+    </div>
+  </div>
+
+  <div class="student:data mb-4 flex flex-col border p-4 rounded shadow">
+      <h2 class="mb-4">Financeiro</h2>
+      <div class="student:data flex my-2">
+        <i class="fa fa-credit-card w-8 mr-4"></i> <span class="tracking-wide">Cobrança todo <strong>dia {{ student.mother.charge_at }}</strong> do mês</span>
+      </div>
+    </div>
+
+  <div class="student:data mb-4 flex flex-col border p-4 rounded shadow">
+    <h2 class="mb-4">Endereço</h2>
+    <div class="student:data flex my-2">
+      <i class="fa fa-home w-8 mr-4"></i>
+      <span class="tracking-wide">
+        {{ student.address.street }}, {{ student.address.number }}
+        {{ (student.address.complement) ? ' - ' + student.address.complement : '' }}
+        <br>
+        {{ student.address.neighborhood }} - {{ student.address.postal_code }} - {{ student.address.city }}-{{ student.address.state }}
+      </span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="h-full flex flex-col">
+    <app-navbar></app-navbar>
+
+    <div class="p-4 flex-1 overflow-y-scroll">
+        <app-student-index *ngIf="window['$store'].state.route === 'index'"></app-student-index>
+        <app-student-form *ngIf="window['$store'].state.route === 'form'"></app-student-form>
+        <app-student-view *ngIf="window['$store'].state.route === 'show'"></app-student-view>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+@import "../node_modules/font-awesome/scss/font-awesome";
+
+@tailwind preflight;
+
+button:disabled {
+  @apply opacity-50 cursor-default bg-grey;
+
+  &:hover {
+    @apply bg-grey;
+  }
+}
+
+.flex-center {
+  @apply flex items-center justify-center;
+}
+
+@tailwind utilities;

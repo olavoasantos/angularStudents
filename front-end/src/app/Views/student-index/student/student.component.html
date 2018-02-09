@@ -1,0 +1,10 @@
+<div class="estudante flex items-center hover:bg-grey-lightest border p-4 rounded shadow cursor-pointer">
+  <div class="estudante:data flex-1">
+      <h3>{{ student.name }}</h3>
+      <small>{{ student.grade }}o ano | Filho de {{ student.mother.name }}</small>
+  </div>
+  <div class="estudante:actions flex border-l">
+      <div (click)="window['$store'].editStudent(student)" class="action flex-center w-8 h-8 ml-2 hover:text-blue hover:bg-blue-lightest rounded-full cursor-pointer"><i class="fa fa-pencil"></i></div>
+      <div (click)="window['$store'].deleteStudent(student)" class="action flex-center w-8 h-8 ml-2 hover:text-red hover:bg-red-lightest rounded-full cursor-pointer"><i class="fa fa-trash"></i></div>
+  </div>
+</div>
